@@ -1,0 +1,187 @@
+/* I copied this from ykps-wsgi so it's kinda horrible but it'll do for now. */
+
+html {
+	font-family: system-ui, sans-serif;
+}
+body {
+	max-width: 60rem;
+	margin: auto;
+	padding: 1rem;
+}
+header {
+	text-align: center;
+}
+h2 {
+	padding-top: 1.2rem;
+}
+h3, h4, h5, h6 {
+	padding-top: 0.8rem;
+}
+span.location {
+	text-decoration: underline;
+}
+time {
+	text-decoration: underline;
+}
+a:link:not(.button), a:visited:not(.button), a:hover:not(.button), a:active:not(.button) {
+	color: rgb(20, 120, 20);
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 2px solid rgb(180, 180, 180);
+	font-size: 90%;
+}
+caption {
+	margin: 1ex 1em;
+	font-weight: bold;
+	font-size: 105%;
+}
+tr.today {
+	background-color: rgb(200, 250, 200);
+}
+tr.not-today {
+	color: rgb(150, 150, 150);
+}
+td, th {
+	border: 1px solid rgb(150, 150, 150);
+	padding: 0.3rem;
+}
+td {
+	text-align: center;
+	min-width: 4.8rem;
+}
+th {
+	color: black;
+	background-color: rgb(240, 240, 240);
+}
+blockquote {
+	position: relative;
+	margin-left: 40px;
+}
+blockquote:before {
+	content: "";
+	position: absolute;
+	left: -14px;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background-color: rgb(180, 180, 180);
+}
+pre {
+	background-color: rgb(240, 240, 240);
+	padding: 0.3rem;
+	overflow-x: scroll;
+}
+textarea {
+	width: 100%;
+	padding: 0.3rem;
+	box-sizing: border-box;
+	border: 0 solid rgba(0, 0, 0, 0);
+	background-color: rgb(240, 240, 240);
+	resize: vertical;
+}
+textarea, input[type=text], code, kbd, var {
+	font-family: "DejaVu Sans Mono", monospace;
+	font-size: smaller;
+	background-color: rgb(240, 240, 240);
+}
+p#teapotmsg {
+	font-weight: bold;
+}
+pre#err {
+	background-color: rgb(255, 220, 220);
+}
+cite {
+	font-size: 90%;
+ 	font-style: italic;
+ 	color: rgb(150, 150, 150);
+}
+p.ps {
+	font-size: 90%;
+ 	color: rgb(150, 150, 150);
+}
+.ps {
+	color: rgb(150, 150, 150);
+}
+.serif, math {
+	font-family: serif;
+}
+img {
+	max-width: 100%;
+	max-height: 60rem;
+}
+img.embed {
+	width: 40%;
+	float: right; 
+	margin-left: 10px; 
+	margin-bottom: 10px; 
+}
+img.link {
+	height: 80px;
+	width: 80px;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+div.link {
+	background-color: rgb(240, 240, 240);
+	height: 100px;
+}
+h1.link {
+	padding-top: 20px;
+	height: 35px;
+	margin-bottom: 5px;
+}
+p.link {
+	font-size: 90%;
+ 	color: rgb(150, 150, 150);
+ 	margin-top: 0px;
+ 	height: 20px;
+	padding-bottom: 25px;
+}
+hr {
+	border: 1px solid rgb(150, 150, 150);
+}
+footer {
+	padding-top: 1rem;
+	text-align: center;
+}
+div.formgroup + div.formgroup {
+	margin-top: 1rem;
+}
+button, .button, input[type=submit], input[type=file]::file-selector-button {
+	/* background-color: rgb(200, 250, 200); */
+	background-color: rgb(20, 120, 20);
+	color: white;
+	border: none;
+	padding: 5px 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	font-family: inherit;
+}
+div.listofdetails {
+	margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+}
+p {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+p + p {
+	margin-bottom: 0rem;
+}
+div.listofdetails details + details {
+	margin-top: 0.5rem;
+}
+form#mainform {
+	margin-top: 1rem;
+	border-top: 1px solid gray;
+	padding-top: 1rem;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid gray;
+	padding-bottom: 1rem;
+}
