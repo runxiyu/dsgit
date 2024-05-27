@@ -38,21 +38,25 @@ def index() -> response_t:
     return flask.Response(flask.render_template("index.html"))
 
 
+@bp.route("/static/<path:path>", methods=["GET"])
+def dsstatic(path: str) -> response_t:
+    # NOTE: This route should not be used in production and should instead be
+    #       access through the reverse proxy's static file serving.  However,
+    #       don't delete this route as it makes url_for work.  The directory
+    #       base is probably also wrong for production use.
+    return flask.send_from_directory("dsstatic", path)
+
+
 def makeapp() -> flask.Flask:
     app = flask.Flask(__name__)
     app.wsgi_app = werkzeug.middleware.proxy_fix.ProxyFix(  # type: ignore
         app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
     )
 
-    # NOTE: All routes registered here should NOT be actually called in
-    #       production (the web server acting as the reverse proxy should be
-    #       configured to serve them as static files which would be much more
-    #       efficient than passing it through flask); however please don't
-    #       delete them as they are useful in development, and more importantly,
-    #       because they make url_for work in templates.
-
-    # TODO: I'll get the paths right when I learn how to use Flask's model for
-    #       app configurations.
+    # NOTE: The following routes should not be used in production and should
+    #       instead be access through the reverse proxy's static file serving.
+    #       However, don't delete this route as it makes url_for work.  The
+    #       directory base is probably also wrong for production use.
 
     @app.route("/", methods=["GET"])
     def external_index() -> response_t:
@@ -67,9 +71,6 @@ def makeapp() -> flask.Flask:
             path = os.path.join(path, "index.html")
         return flask.send_from_directory("../dstest", path)
 
-    @app.route(URL_PREFIX.rstrip("/") + "/static/<path:path>", methods=["GET"])
-    def dsstatic(path: str) -> response_t:
-        return flask.send_from_directory("dsstatic", path)
 
     app.register_blueprint(bp, url_prefix=URL_PREFIX)
     # It is not necessary to pass url_prefix here as the blueprint was
