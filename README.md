@@ -34,3 +34,7 @@ are great &mdash; but I haven't yet found a sane one that is not a *wiki
 engine*, which is, from a use-case perspective, rather different to what
 most common people refer to when they speak about small websites &mdash;
 simple blogs.
+
+Note: I've recently found [Oddµ](https://src.alexschroeder.ch/oddmu.git)
+which seems to be similar to what I'm looking for. I'll re-evaluate
+whether this project is necessary when I have time.
